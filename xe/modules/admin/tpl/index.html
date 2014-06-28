@@ -1,0 +1,60 @@
+<include target="./_header.html" />
+<load target="./js/excanvas.min.js" targetie="lt IE 9" />
+<load target="./js/jquery.jqplot.min.js" />
+<load target="./js/jqplot.barRenderer.min.js" />
+<load target="./js/jqplot.categoryAxisRenderer.min.js" />
+<load target="./js/jqplot.pointLabels.min.js" />
+<load target="./css/jquery.jqplot.min.css" />
+
+<div class="content" id="content">
+	<div class="x_page-header">
+		<h1>{$lang->control_panel} <a class="x_icon-question-sign" href="./admin/help/index.html#UMAN_dashboard" target="_blank">{$lang->help}</a></h1>
+	</div>
+	<div id="checkBrowserMessage" class="message error" style="display:none;">
+		<h2>{$lang->checkBrowserIE8}</h2>
+	</div>
+	<div cond="$XE_VALIDATOR_MESSAGE && $XE_VALIDATOR_ID == 'modules/admin/tpl/index/1'" class="message {$XE_VALIDATOR_MESSAGE_TYPE}">
+		<p>{$XE_VALIDATOR_MESSAGE}</p>
+	</div>
+	<form action="./" method="post" class="message info x_clearfix" cond="!$isEnviromentGatheringAgreement">
+		<input type="hidden" name="module" value="admin" />
+		<input type="hidden" name="act" value="procAdminEnviromentGatheringAgreement" />
+		<input type="hidden" name="xe_validator_id" value="modules/admin/tpl/index/1" />
+		<h2>{$lang->install_env_agreement}</h2>
+		<p>{$lang->install_env_agreement_desc}</p>
+		<div class="x_btn-group x_pull-right" style="margin-bottom:10px">
+			<button type="submit" name="is_agree" value="false" class="x_btn x_btn-small">{$lang->disagree}</button>
+			<button type="submit" name="is_agree" value="true" class="x_btn x_btn-small x_btn-primary">{$lang->agree}</button>
+		</div>
+	</form>
+	<div class="message update" cond="$addTables || $needUpdate">
+		<h2 cond="$needUpdate && $addTables">{$lang->need_update_and_table}</h2>
+		<h2 cond="$needUpdate && !$addTables">{$lang->need_update}</h2>
+		<h2 cond="!$needUpdate && $addTables">{$lang->need_table}</h2>
+		<ul>
+		<block loop="$module_list => $key,$value">
+			<li style="margin:0 0 4px 0" cond="$value->need_install">{$value->module} - <button type="button" onclick="doInstallModule('{$value->module}')" class="x_btn x_btn-small">{$lang->cmd_create_db_table}</button></li>
+			<li style="margin:0 0 4px 0" cond="$value->need_update">{$value->module} - <button type="button" onclick="doUpdateModule('{$value->module}')" class="x_btn x_btn-small">{$lang->cmd_module_update}</button></li>
+		</block>
+		</ul>
+	</div>
+	<div class="message update" cond="count($newVersionList)">
+		<h2>{$lang->available_new_version}</h2>
+		<ul>
+			<li loop="$newVersionList => $key, $package" style="margin:0 0 4px 0">
+				[{$lang->typename[$package->type]} <a class="x_icon-question-sign" href="{$package->helpUrl}" target="_blank" cond="$package->helpUrl">{$lang->help}</a>] {$package->title} ver. {$package->version} - <a href="{$package->url}&amp;return_url={urlencode(getRequestUriByServerEnviroment())}">{$lang->update}</a>
+			</li>
+		</ul>
+	</div>
+	
+	<div class="dashboard">
+		<block cond="$counterAddonActivated">
+			<include target="./_dashboard_counter.html" />
+		</block>
+		<block cond="!$counterAddonActivated">
+			<include target="./_dashboard_default.html" />
+		</block>
+	</div>
+</div>
+<include target="./_footer.html" />
+
