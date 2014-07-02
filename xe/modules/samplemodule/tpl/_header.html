@@ -1,0 +1,10 @@
+<h3 class="xeAdmin">{$lang->{$modulename}} <span class="gray">{$lang->cmd_management}</span></h3>
+
+<div class="infoText">{nl2br($lang->basic_config_help)}</div>
+
+<div class="header4">
+    <ul class="localNavigation">
+        <li <!--@if($act=='disp{$Modulename}AdminSetup')-->class="on"<!--@end-->><a href="{getUrl('act','disp{$Modulename}AdminSetup','module_srl','')}">{$lang->cmd_setup}</a></li>
+        <li <!--@if($act=='disp{$Modulename}AdminGrantInfo')-->class="on"<!--@end-->><a href="{getUrl('act','disp{$Modulename}AdminGrantInfo')}">{$lang->cmd_manage_grant}</a></li>
+    </ul>
+</div>
