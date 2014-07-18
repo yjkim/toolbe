@@ -38,7 +38,7 @@
 	            	<!--@if($val1['list'])-->
 	            	{@$class_name_dropdown = ' dropdown-toggle'}
 	            	<!--@endif-->
-					<a href="{$val1['href']}" target="_blank"|cond="$val1['open_window']=='Y'" class="{$class_name_dropdown}" data-toggle="dropdown"|cond="$class_name_dropdown">{$val1['link']} <span cond="$val1['link']" class="caret"></span></a>
+					<a href="{$val1['href']}" target="_blank"|cond="$val1['open_window']=='Y'" class="{$class_name_dropdown}" data-toggle="dropdown"|cond="$class_name_dropdown">{$val1['link']} <span cond="$val1['list']" class="caret"></span></a>
 					<ul cond="$val1['list']" class="dropdown-menu" role="menu">
 						<li loop="$val1['list']=>$key2,$val2" class="active"|cond="$val2['selected']"><a href="{$val2['href']}" target="_blank"|cond="$val2['open_window']=='Y'">{$val2['link']}</a></li>
 					</ul>
