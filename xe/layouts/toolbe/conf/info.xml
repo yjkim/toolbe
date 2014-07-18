@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout version="0.2">
+    <title xml:lang="ko">toolbe layout</title>
+    <title xml:lang="en">toolbe layout</title>
+    <description xml:lang="ko">
+        toolbe 레이아웃. 제작 : yjkim
+    </description>
+    <description xml:lang="en">
+         toolbe 레이아웃. 제작 : yjkim
+    </description>
+    <version>1.0.0</version>
+    <date>2014-07-18</date>
+    <link>http://toolbe.kimyoungjin.com/</link>
+
+    <author email_address="yjkim8202@gmail.com" link="http://toolbe.kimyoungjin.com/">
+        <name xml:lang="ko">yjkim</name>
+        <name xml:lang="en">yjkim</name>
+    </author>
+
+    <extra_vars>
+		<var name="layout_style" type="select">
+			<title>레이아웃 스타일</title>
+			<description xml:lang="ko">layout style 을 선택합니다.</description>
+			<options value="default">
+        		<title xml:lang="ko">default layout</title>
+        	</options>
+			<options value="navbar">
+        		<title xml:lang="ko">navbar layout </title>
+        	</options>
+		</var>
+        <var name="google_analytics_code" type="textarea">
+            <title xml:lang="ko">google analytics code</title>
+			<description xml:lang="ko">google analytics code</description>
+        </var>
+    </extra_vars>
+
+    <menus>
+        <menu name="GNB" maxdepth="2" default="true">
+            <title xml:lang="ko">전역 네비게이션 바</title>
+            <title xml:lang="en">Global Navigation Bar</title>
+        </menu>
+    </menus>
+</layout>

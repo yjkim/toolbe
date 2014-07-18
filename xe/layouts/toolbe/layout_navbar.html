@@ -1,0 +1,47 @@
+<div class="container">
+
+      <!-- Static navbar -->
+      <div class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">TOOLBE</a>
+          </div>
+          <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+            	<!--@foreach($GNB->list as $key1=>$val1)-->
+            	{@$class_name=''}
+            	<!--@if($val1['selected'])-->
+            	{@$class_name .= ' active'}
+            	<!--@endif-->
+            	<!--@if($val1['list'])-->
+            	{@$class_name .= ' dropdown'}
+            	<!--@endif-->
+				<li class="{$class_name}"|cond="$class_name" >
+	            	{@$class_name_dropdown=''}
+	            	<!--@if($val1['list'])-->
+	            	{@$class_name_dropdown = ' dropdown-toggle'}
+	            	<!--@endif-->
+					<a href="{$val1['href']}" target="_blank"|cond="$val1['open_window']=='Y'" class="{$class_name_dropdown}" data-toggle="dropdown"|cond="$class_name_dropdown">{$val1['link']} <span cond="$val1['link']" class="caret"></span></a>
+					<ul cond="$val1['list']" class="dropdown-menu" role="menu">
+						<li loop="$val1['list']=>$key2,$val2" class="active"|cond="$val2['selected']"><a href="{$val2['href']}" target="_blank"|cond="$val2['open_window']=='Y'">{$val2['link']}</a></li>
+					</ul>
+				</li>
+            	<!--@endforeach-->
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><img widget="login_info" skin="default" /></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div><!--/.container-fluid -->
+      </div>
+
+      <!-- Main component for a primary marketing message or call to action -->
+      {$content}
+
+    </div> <!-- /container -->

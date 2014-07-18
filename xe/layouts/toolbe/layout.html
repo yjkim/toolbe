@@ -1,0 +1,20 @@
+<load target="bootstrap-3.2.0-dist/css/bootstrap.min.css" index="100" />
+<load target="css/toolbe.css" index="101" />
+{@ Context::loadFile(array($layout_info->path . "./bootstrap-3.2.0-dist/js/bootstrap.min.js", 'body', '', -100000), true) }
+{@ Context::loadFile(array($layout_info->path . "./js/toolbe.js", 'body', '', 100), true) }
+
+<!--@if(!$layout_info->layout_style)-->
+{@$layout_info->layout_style = "default"}
+<!--@end-->
+
+
+<!--@if($layout_info->layout_style == "navbar")-->
+<!--#include("layout_navbar.html")-->
+<!--@else-->
+<!--#include("layout_default.html")-->
+<!--@endif-->
+
+
+<!-- START google analytics, body 닫기전 삽입해야함 --> 
+{$layout_info->google_analytics_code}
+<!-- END google analytics, body 닫기전 삽입해야함 --> 
