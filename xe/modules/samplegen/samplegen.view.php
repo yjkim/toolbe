@@ -66,6 +66,7 @@ class samplegenView extends samplegen {
 		// execute string replace sciprt
 		$Module_name = ucfirst($module_name);	// 첫글자만 대문자
 		$cmd = sprintf('/bin/bash ' . _XE_PATH_ . 'modules/samplegen/data/gen.sh %s %s %s 2>&1',$module_name,$Module_name,$tmp_root);
+		$output = array($cmd);
 		exec($cmd, $output);
 		// log
 		$output_path = sprintf('%s/%s.log', $tmp_root,$module_name);
