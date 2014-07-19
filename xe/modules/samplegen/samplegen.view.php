@@ -52,54 +52,44 @@ class samplegenView extends samplegen {
 		$module_name = Context::get('module_name');
 		$rand_value = rand();
 		$src_path = sprintf(_XE_PATH_ . 'modules/samplegen/data/sample');
-		$dst_root = sprintf(_XE_PATH_ . 'files/tmp/samplegen/%s_%s/', $module_name, $rand_value);
+		$tmp_root = sprintf(_XE_PATH_ . 'files/tmp/samplegen/%s_%s', $module_name, $rand_value);
+		$dst_root = sprintf('%s/%s', $tmp_root, $module_name);
+		$download_path = sprintf(_XE_PATH_ . 'files/tmp/samplegen/%s_%s/%s.tar.gz', $module_name, $rand_value, $module_name);
 		
-		if (!mkdir($dst_root, 0700, true)) {
+		if (!mkdir($dst_root, 0755, true)) {
 			// failed to mdkir
-			
 		}
 		if (!$this->recurse_copy($src_path,$dst_root,$module_name) ) {
 			// failed to copy
 		}
-		
-		
-		$Module_name = ucfirst($module_name);;	// 첫글자만 대문자
-		$moduletitle = $module_name;
-		
-		// string replace
-		
-		$cmd1 = 'find "'.$dst_root.'" -type f \( -name "*.php" -o -name "*.html" -o -name "*.js" -o -name "*.css" -o -name "*.xml" \) -exec sed -i -e "s/{$modulename}/'.$module_name.'/g" {} \;';
-		$cmd2 = 'find "'.$dst_root.'" -type f \( -name "*.php" -o -name "*.html" -o -name "*.js" -o -name "*.css" -o -name "*.xml" \) -exec sed -i -e "s/{$Modulename}/'.$Module_name.'/g" {} \;';
-		$cmd3 = 'find "'.$dst_root.'" -type f \( -name "*.php" -o -name "*.html" -o -name "*.js" -o -name "*.css" -o -name "*.xml" \) -exec sed -i -e "s/{$moduletitle}/'.$moduletitle.'/g" {} \;';
-		
-		system($cmd1);
-		system($cmd2);
-		system($cmd3);
-		
-		// compress
-		$download_filename_tmp = sprintf('%s_%s.tar.gz',$module_name,$rand_value);
-		$download_filename = sprintf('%s.tar.gz',$module_name);
-		$download_path = sprintf(_XE_PATH_ . 'files/tmp/samplegen/%s', $module_name, $rand_value, $download_filename_tmp);
-		
-		$cmd4 = "tar -zcf $download_path $dst_root";
-		system($cmd4);
+				
+		// execute string replace sciprt
+		$Module_name = ucfirst($module_name);	// 첫글자만 대문자
+		$cmd = sprintf(_XE_PATH_ . 'modules/samplegen/data/gen.sh %s %s %s 2>&1',$module_name,$Module_name,$tmp_root);
+		exec($cmd, $output);
+		// log
+		$output_path = sprintf('%s/%s.log', $tmp_root,$module_name);
+		file_put_contents($output_path,print_r($output,true));
 		
 		// stream
+		if (file_exists($download_path)) {
 
-		$filesize = filesize($download_path);
-		
-		header("Pragma: public");
-		header("Expires: 0");
-		header("Content-Type: application/octet-stream");
-		header("Content-Disposition: attachment; filename=\"$download_filename\"");
-		header("Content-Transfer-Encoding: binary");
-		header("Content-Length: $filesize");
-		
-		ob_clean();
-		flush();
-		readfile($download_path);
-		
-		die();
+			$filesize = filesize($download_path);
+			
+			header("Pragma: public");
+			header("Expires: 0");
+			header("Content-Type: application/octet-stream");
+			header("Content-Disposition: attachment; filename=\"$download_filename\"");
+			header("Content-Transfer-Encoding: binary");
+			header("Content-Length: $filesize");
+			
+			ob_clean();
+			flush();
+			readfile($download_path);
+			
+			die();
+		}
+		$this->setTemplateFile('samplegen');
 	}
 }
 ?>
