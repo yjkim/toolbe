@@ -1,1 +1,34 @@
-sample module page
+<style type="text/css">
+</style>
+<script type="text/javascript">
+var Samplegen = {};
+Samplegen.nameValidCheck = function (form) {
+	var module_name = form.elements.module_name;
+	if (!module_name.value.match(/^[a-z\s]+$/)) {
+		alert('invalid name.');
+		module_name.focus();
+		return false;
+	}
+	return true;
+}
+</script>
+
+<div class="samplegen-module jumbotron">
+
+	<h2>XE Sample Module Generator</h2>
+	<p>This tool helps you to create the desired name of the module.</p>
+
+	<form role="form" onsubmit="return Samplegen.nameValidCheck(this);" action="/">
+		<input type="hidden" name="mid" value="{$mid}" />
+		<input type="hidden" name="act" value="dispSamplegenDownload" />
+		<input type="hidden" name="error_return_url" value="" />
+		
+		<div class="form-group">
+			<label for="modulename">New XE Module Name</label>
+			<input type="text" class="form-control" name="module_name" value="{$module_name}" placeholder="Please enter the module name you want">
+		</div>
+		<button type="submit" class="btn btn-primary btn-lg">Download</button>
+	</form>
+
+
+</div>

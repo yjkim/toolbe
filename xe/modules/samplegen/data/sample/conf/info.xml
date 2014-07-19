@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module version="0.2">
+    <title xml:lang="ko">{$modulename} 기본모듈</title>
+    <description xml:lang="ko">{$modulename} 기본모듈입니다.</description>
+    <version>0.2</version>
+    <date>2014-07-09</date>
+    <category>service</category>
+
+    <author email_address="yjkim8202@gmail.com" link="http://toolbe.kimyoungjin.com/">
+        <name xml:lang="ko">yjkim</name>
+    </author>
+</module>

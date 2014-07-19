@@ -4,6 +4,7 @@
     <permissions />
     <actions>
     	<action name="dispSamplegenIndex" type="view" index="true" />
+    	<action name="dispSamplegenDownload" type="view" />
     	
     	<!-- Admin -->
 		<action name="dispSamplegenAdminSetup" type="view" standalone="true" admin_index="true"  />
