@@ -54,7 +54,8 @@ class samplegenView extends samplegen {
 		$src_path = sprintf(_XE_PATH_ . 'modules/samplegen/data/sample');
 		$tmp_root = sprintf(_XE_PATH_ . 'files/tmp/samplegen/%s_%s', $module_name, $rand_value);
 		$dst_root = sprintf('%s/%s', $tmp_root, $module_name);
-		$download_path = sprintf(_XE_PATH_ . 'files/tmp/samplegen/%s_%s/%s.tar.gz', $module_name, $rand_value, $module_name);
+		$download_filename = sprintf('%s.tar.gz', $module_name);
+		$download_path = sprintf(_XE_PATH_ . 'files/tmp/samplegen/%s_%s/%s', $module_name, $rand_value, $download_filename);
 		
 		if (!mkdir($dst_root, 0755, true)) {
 			// failed to mdkir
