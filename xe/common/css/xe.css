@@ -204,19 +204,18 @@ body>.message {
 	display: inline-block;
 	*display: inline;
 	margin: 0;
-	padding: 0 12px !important;
-	height: 24px !important;
+	padding: 0 12px /*by yjkim !important */;
 	overflow: visible;
 	border: 1px solid #bbbbbb;
 	border-color: #e6e6e6 #e6e6e6 #bfbfbf;
 	border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
 	border-bottom-color: #a2a2a2;
 	border-radius: 2px;
-	text-decoration: none !important;
+	text-decoration: none /*by yjkim !important */;
 	text-align: center;
 	text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
 	vertical-align: top;
-	line-height: 24px !important;
+	line-height: 24px /*by yjkim !important */;
 	font-family: inherit;
 	font-size: 12px;
 	color: #333333;
@@ -234,10 +233,7 @@ body>.message {
 	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#e6e6e6', GradientType=0);
 	filter: progid: DXImageTransform.Microsoft.gradient(enabled=false);
 }
-input.btn,
-button.btn {
-	height: 26px !important;
-}
+
 .btn:hover,
 .btn:active,
 .btn[disabled] {
