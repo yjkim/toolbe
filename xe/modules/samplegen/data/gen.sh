@@ -12,8 +12,8 @@ rootpath="$3"
 
 cd $rootpath
 
-echo find ./ -type f \( -name "*.php" -o -name "*.html" -o -name "*.js" -o -name "*.css" -o -name "*.xml" \) -exec sed -i -e "s/{\$modulename}/$modulename/g" {} \;
-echo find ./ -type f \( -name "*.php" -o -name "*.html" -o -name "*.js" -o -name "*.css" -o -name "*.xml" \) -exec sed -i -e "s/{\$Modulename}/$Modulename/g" {} \;
-echo find ./ -type f \( -name "*.php" -o -name "*.html" -o -name "*.js" -o -name "*.css" -o -name "*.xml" \) -exec sed -i -e "s/{\$moduletitle}/$modulename/g" {} \;
+find ./ -type f \( -name "*.php" -o -name "*.html" -o -name "*.js" -o -name "*.css" -o -name "*.xml" \) -exec sed -i -e "s/{\$modulename}/$modulename/g" {} \;
+find ./ -type f \( -name "*.php" -o -name "*.html" -o -name "*.js" -o -name "*.css" -o -name "*.xml" \) -exec sed -i -e "s/{\$Modulename}/$Modulename/g" {} \;
+find ./ -type f \( -name "*.php" -o -name "*.html" -o -name "*.js" -o -name "*.css" -o -name "*.xml" \) -exec sed -i -e "s/{\$moduletitle}/$modulename/g" {} \;
 
-echo tar -zcf $modulename.tar.gz ./$modulename
+tar -zcf $modulename.tar.gz ./$modulename
