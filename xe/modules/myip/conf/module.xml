@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<module>
+    <grants />
+    <permissions />
+    <actions>
+    	<action name="dispMyipIndex" type="view" index="true" />
+    	
+    	<!-- Admin -->
+		<action name="dispMyipAdminSetup" type="view" standalone="true" admin_index="true"  />
+		<action name="procMyipAdminSetup" type="controller" />
+		<action name="dispMyipAdminGrantInfo" type="view" standalone="true" />
+    </actions>
+</module>
