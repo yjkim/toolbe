@@ -1,2 +1,4 @@
 @charset "utf-8";
 
+
+.board .iText {padding: 0;}	/* xe 오류 수정, 글작성시 제목 입력창에 위아래 공간 부족한 문제 수정 */
