@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<module>
+    <grants />
+    <permissions />
+    <actions>
+    	<action name="dispMimetoolIndex" type="view" index="true" />
+    	<action name="dispMimetoolUrlEncodeDownload" type="view" />
+    	<action name="dispMimetoolUrlDecodeDownload" type="view" />
+    	<action name="dispMimetoolBase64EncodeDownload" type="view" />
+    	<action name="dispMimetoolBase64DecodeDownload" type="view" />
+    	<action name="dispMimetoolQuotedPrintableEncodeDownload" type="view" />
+    	<action name="dispMimetoolQuotedPrintableDecodeDownload" type="view" />
+    	
+    	<!-- Admin -->
+		<action name="dispMimetoolAdminSetup" type="view" standalone="true" admin_index="true"  />
+		<action name="procMimetoolAdminSetup" type="controller" />
+		<action name="dispMimetoolAdminGrantInfo" type="view" standalone="true" />
+    </actions>
+</module>

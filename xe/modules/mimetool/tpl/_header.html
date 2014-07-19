@@ -1,0 +1,10 @@
+<h3 class="xeAdmin">{$lang->mimetool} <span class="gray">{$lang->cmd_management}</span></h3>
+
+<div class="infoText">{nl2br($lang->basic_config_help)}</div>
+
+<div class="header4">
+    <ul class="localNavigation">
+        <li <!--@if($act=='dispMimetoolAdminSetup')-->class="on"<!--@end-->><a href="{getUrl('act','dispMimetoolAdminSetup','module_srl','')}">{$lang->cmd_setup}</a></li>
+        <li <!--@if($act=='dispMimetoolAdminGrantInfo')-->class="on"<!--@end-->><a href="{getUrl('act','dispMimetoolAdminGrantInfo')}">{$lang->cmd_manage_grant}</a></li>
+    </ul>
+</div>

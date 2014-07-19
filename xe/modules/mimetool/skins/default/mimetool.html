@@ -1,0 +1,63 @@
+<style type="text/css">
+.mimetool-module textarea {width:100%;height:100%;}
+</style>
+<script type="text/javascript">
+var Mimetool = {};
+Mimetool.download = function (act) {
+	var frm = jQuery('#frm_download')[0];
+	var url = '/?mid=mimetool';
+	frm.action = url;
+	frm.elements.act.value = act;
+	frm.elements.inputStr.value = jQuery('#input').attr('value');
+	frm.submit();
+};
+</script>
+
+<div class="mimetool-module ">
+	<form id="frm_download" method="post" action="">
+		<input type="hidden" name="act" />
+		<input type="hidden" name="inputStr" />
+	</form>
+	
+	<div class="mimetool_input jumbotron">
+	    <h2><a href="/mimetool">The Simplest MIME Tool</a></h2>
+		<form id="frm" method="post">
+		    <h3>Input value <button type="submit" class="btn btn-primary btn-lg">submit</button></h3>
+		    <textarea id="input" name="input" rows="3" cols="60">{$input}</textarea>
+		</form>
+	</div>
+
+	<div class="row">
+		<div class="col-6 col-sm-6 col-lg-4">
+			<h2>url_encode <a class="btn btn-default" href="javascript:Mimetool.download('dispMimetoolUrlEncodeDownload');" role="button">Download</a></h2>
+			<textarea>{$url_encode}</textarea>
+		</div>
+		<!--/span-->
+		<div class="col-6 col-sm-6 col-lg-4">
+			<h2>url_decode <a class="btn btn-default" href="javascript:Mimetool.download('dispMimetoolUrlDecodeDownload');" role="button">Download</a></h2>
+			<textarea>{$url_decode}</textarea>
+		</div>
+		<!--/span-->
+		<div class="col-6 col-sm-6 col-lg-4">
+			<h2>base64_encode <a class="btn btn-default" href="javascript:Mimetool.download('dispMimetoolBase64EncodeDownload');" role="button">Download</a></h2>
+			<textarea>{$base64_encode}</textarea>
+		</div>
+		<!--/span-->
+		<div class="col-6 col-sm-6 col-lg-4">
+			<h2>base64_decode <a class="btn btn-default" href="javascript:Mimetool.download('dispMimetoolBase64DecodeDownload');" role="button">Download</a></h2>
+			<textarea>{$base64_decode}</textarea>
+		</div>
+		<!--/span-->
+		<div class="col-6 col-sm-6 col-lg-4">
+			<h2>quoted_encode <a class="btn btn-default" href="javascript:Mimetool.download('dispMimetoolQuotedPrintableEncodeDownload');" role="button">Download</a></h2>
+			<textarea>{$quoted_encode}</textarea>
+		</div>
+		<!--/span-->
+		<div class="col-6 col-sm-6 col-lg-4">
+			<h2>quoted_decode <a class="btn btn-default" href="javascript:Mimetool.download('dispMimetoolQuotedPrintableDecodeDownload');" role="button">Download</a></h2>
+			<textarea>{$quoted_decode}</textarea>
+		</div>
+		<!--/span-->
+	</div>
+
+</div>
