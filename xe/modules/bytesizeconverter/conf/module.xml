@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<module>
+    <grants />
+    <permissions />
+    <actions>
+    	<action name="dispBytesizeconverterIndex" type="view" index="true" />
+    	
+    	<!-- Admin -->
+		<action name="dispBytesizeconverterAdminSetup" type="view" standalone="true" admin_index="true"  />
+		<action name="procBytesizeconverterAdminSetup" type="controller" />
+		<action name="dispBytesizeconverterAdminGrantInfo" type="view" standalone="true" />
+    </actions>
+</module>

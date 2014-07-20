@@ -1,0 +1,140 @@
+<style type="text/css">
+</style>
+
+<div class="bytesizeconverter-module">
+	<div class="row">
+		<div class="col-md-5">
+			<h2>The Simplest Size Converter</h2>
+			<p>간편하게 byte size 단위를 변환해 보실수 있는 byte size convert tool 입니다.</p>
+		</div>
+		<div class="col-md-6 " >
+			<form class="form-horizontal" role="form" id="inputByteForm">
+				<div class="form-group">
+					<label for="input" class="col-sm-4 control-label">Input</label>
+					<div class="col-sm-8 input-group">
+						<input type="text" class="form-control" id="input" placeholder="byte">
+						<div class="input-group-btn">
+							<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"> Bytes <span class="caret"></span>
+							</button>
+							<ul class="dropdown-menu dropdown-menu-right" role="menu">
+								<li><a href="#">Bytes</a></li>
+								<li><a href="#">KB</a></li>
+								<li><a href="#">MB</a></li>
+								<li><a href="#">GB</a></li>
+								<li><a href="#">TB</a></li>
+								<li><a href="#">PB</a></li>
+								<li><a href="#">EB</a></li>
+							</ul>
+						</div>
+						<!-- /btn-group -->
+					</div>
+				</div>
+				
+				<div class="form-group">
+					<label for="dispByte" class="col-sm-4 control-label">byte</label>
+					<div class="col-sm-8 input-group">
+						<input type="text" readonly="readonly" class="form-control" name="dispByte" placeholder="byte">
+						<span class="input-group-addon">Bytes</span>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="dispKiloByte" class="col-sm-4 control-label">kilo byte</label>
+					<div class="col-sm-8 input-group">
+						<input type="text" readonly="readonly" class="form-control" name="dispKiloByte" placeholder="kilo byte">
+						<span class="input-group-addon">KB</span>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="dispMegaByte" class="col-sm-4 control-label">mega byte</label>
+					<div class="col-sm-8 input-group">
+						<input type="text" readonly="readonly" class="form-control" name="dispMegaByte" placeholder="mega byte">
+						<span class="input-group-addon">MB</span>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="dispGigaByte" class="col-sm-4 control-label">giga byte</label>
+					<div class="col-sm-8 input-group">
+						<input type="text" readonly="readonly" class="form-control" name="dispGigaByte" placeholder="giga byte">
+						<span class="input-group-addon">GB</span>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="dispTeraByte" class="col-sm-4 control-label">tera byte</label>
+					<div class="col-sm-8 input-group">
+						<input type="text" readonly="readonly" class="form-control" name="dispTeraByte" placeholder="tera byte">
+						<span class="input-group-addon">TB</span>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="dispPetaByte" class="col-sm-4 control-label">peta byte</label>
+					<div class="col-sm-8 input-group">
+						<input type="text" readonly="readonly" class="form-control" name="dispPetaByte" placeholder="peta byte">
+						<span class="input-group-addon">PB</span>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="dispExaByte" class="col-sm-4 control-label">exa byte</label>
+					<div class="col-sm-8 input-group">
+						<input type="text" readonly="readonly" class="form-control" name="dispExaByte" placeholder="exa byte">
+						<span class="input-group-addon">EB</span>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+
+<script type="text/javascript">
+	var ByteSizeConverter = {};
+	ByteSizeConverter.toFixed = function toFixed(x) {
+	  if (Math.abs(x) < 1.0) {
+	    var e = parseInt(x.toString().split('e-')[1]);
+	    if (e) {
+	        x *= Math.pow(10,e-1);
+	        x = '0.' + (new Array(e)).join('0') + x.toString().substring(2);
+	    }
+	  } else {
+	    var e = parseInt(x.toString().split('+')[1]);
+	    if (e > 20) {
+	        e -= 20;
+	        x /= Math.pow(10,e);
+	        x += (new Array(e+1)).join('0');
+	    }
+	  }
+	  return x;
+	};
+	ByteSizeConverter.calc = function() {
+		var input = jQuery('#input').val();
+		if (isNaN(input)) {
+			return; // 숫자가 아님
+		}
+		var byteInput = input;
+		var byteUnit = 1024;
+		
+		var kilobyte = byteInput / byteUnit;
+		var megabyte = byteInput / (byteUnit*byteUnit);
+		var gigabyte = byteInput / (byteUnit*byteUnit*byteUnit);
+		var terabyte = byteInput / (byteUnit*byteUnit*byteUnit*byteUnit);
+		var petabyte = byteInput / (byteUnit*byteUnit*byteUnit*byteUnit*byteUnit);
+		var exabyte = byteInput / (byteUnit*byteUnit*byteUnit*byteUnit*byteUnit);
+
+		var form = jQuery("#inputByteForm");
+		form.find('[name=dispByte]').val(byteInput);
+		form.find('[name=dispKiloByte]').val(ByteSizeConverter.toFixed(kilobyte));
+		form.find('[name=dispMegaByte]').val(ByteSizeConverter.toFixed(megabyte));
+		form.find('[name=dispGigaByte]').val(ByteSizeConverter.toFixed(gigabyte));
+		form.find('[name=dispTeraByte]').val(ByteSizeConverter.toFixed(terabyte));
+		form.find('[name=dispPetaByte]').val(ByteSizeConverter.toFixed(petabyte));
+		form.find('[name=dispExaByte]').val(ByteSizeConverter.toFixed(exabyte));
+	};
+	ByteSizeConverter.init = function () {
+		// 초기 값은 1024 로 세팅
+		jQuery('#input').val(1024);
+		ByteSizeConverter.calc();
+		jQuery("#input").bind("keyup", function(e) {
+			ByteSizeConverter.calc();
+		});
+	};
+	ByteSizeConverter.init();
+</script>
