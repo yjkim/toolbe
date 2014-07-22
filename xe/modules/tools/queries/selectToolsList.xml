@@ -1,0 +1,14 @@
+<query id="selectToolsList" action="select">
+	<tables>
+		<table name="tools" alias="tools" />
+	</tables>
+	<columns>
+		<column name="tools.*" />
+	</columns>
+    <navigation>
+        <index var="sort_index" default="tools.score" order="order_type" />
+        <list_count var="list_count" default="20" />
+        <page_count var="page_count" default="10" />
+        <page var="page" default="1" />
+    </navigation>
+</query>

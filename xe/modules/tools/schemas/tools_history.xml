@@ -1,4 +1,0 @@
-<table name="tools_history">
-	<column name="tools_history_srl" type="number" size="11" notnull="notnull" primary_key="primary_key" />
-	
-</table>
