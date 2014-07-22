@@ -27,5 +27,10 @@
     		}
     		return $module_info;
     	}
+    
+        function selectToolsList($args) {
+        	$output = executeQuery('tools.selectToolsList', $args);
+        	return $output;
+        }
     }
 ?>

@@ -7,6 +7,15 @@ class toolsView extends tools {
 	}
 	
 	function dispToolsIndex() {
+		
+		$oModel = &getModel('tools');
+		
+		$args = null;
+		$output = $oModel->selectToolsList($args);
+		if ($output->toBool() && $output->data) {
+			Context::set('tools_list', $output->data);
+		}
+		
 		$this->setTemplateFile('tools');
 	}
 }
