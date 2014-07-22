@@ -11,6 +11,7 @@ class toolsView extends tools {
 		$oModel = &getModel('tools');
 		
 		$args = null;
+		$args->order_type = 'desc';
 		$output = $oModel->selectToolsList($args);
 		if ($output->toBool() && $output->data) {
 			Context::set('tools_list', $output->data);
