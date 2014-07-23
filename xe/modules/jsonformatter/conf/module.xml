@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<module>
+    <grants />
+    <permissions />
+    <actions>
+    	<action name="dispJsonformatterIndex" type="view" index="true" />
+    	
+    	<!-- Admin -->
+		<action name="dispJsonformatterAdminSetup" type="view" standalone="true" admin_index="true"  />
+		<action name="procJsonformatterAdminSetup" type="controller" />
+		<action name="dispJsonformatterAdminGrantInfo" type="view" standalone="true" />
+    </actions>
+</module>
