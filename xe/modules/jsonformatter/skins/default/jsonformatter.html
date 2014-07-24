@@ -1,1 +1,27 @@
-sample module page
+<!--%import("prettyprint.js")-->
+<div class="jsonformatter-module">
+	<h1><a href="/jsonformatter">JSON Pretty Print</a></h1>
+	<div class="row">
+		<div class="col-md-6">
+			<textarea id="input" rows="3" cols="60"></textarea>
+		</div>
+		<div class="col-md-6">
+			<div class="highlight"><pre class="prettyprint linenums:4" id="prettied">foo();
+bar();
+baz();
+boo();
+far();
+faz();</pre></div>
+		</div>
+		
+	</div>
+</div>
+<script type="text/javascript">
+var JsonFormatter = {};
+JsonFormatter.init = function() {
+	jQuery("#input").bind("keyup", function(e) {
+		jQuery("#prettied").html( prettyPrint(jQuery("#input").val()) );
+	});
+};
+JsonFormatter.init();
+</script>
