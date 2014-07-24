@@ -4,8 +4,8 @@
 var Samplegen = {};
 Samplegen.nameValidCheck = function (form) {
 	var module_name = form.elements.module_name;
-	if (!module_name.value.match(/^[a-z\s]+$/)) {
-		alert('invalid name.');
+	if (!module_name.value.match(/^[a-z]+$/)) {
+		alert('invalid name. use only small letters.');
 		module_name.focus();
 		return false;
 	}
