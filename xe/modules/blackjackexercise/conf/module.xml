@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<module>
+    <grants />
+    <permissions />
+    <actions>
+    	<action name="dispBlackjackexerciseIndex" type="view" index="true" />
+    	
+    	<!-- Admin -->
+		<action name="dispBlackjackexerciseAdminSetup" type="view" standalone="true" admin_index="true"  />
+		<action name="procBlackjackexerciseAdminSetup" type="controller" />
+		<action name="dispBlackjackexerciseAdminGrantInfo" type="view" standalone="true" />
+    </actions>
+</module>
