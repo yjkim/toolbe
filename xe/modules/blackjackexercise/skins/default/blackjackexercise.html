@@ -1,4 +1,5 @@
 <div>
+	<h1>blackjack table</h1>
 	<div class="row">
 		<div class="col-md-8">
 		
@@ -21,47 +22,171 @@
 				</tr>
 				<tr>
 					<th>under 8</th>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
+					<!--@foreach($tableHash['under8'] as $v)-->
+					<td>{$v}</td>
+					<!--@endforeach-->
 				</tr>
 				<tr>
 					<th>9</th>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
+					<!--@foreach($tableHash['9'] as $v)-->
+					<td>{$v}</td>
+					<!--@endforeach-->
 				</tr>
 				<tr>
 					<th>10</th>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
+					<!--@foreach($tableHash['10'] as $v)-->
+					<td>{$v}</td>
+					<!--@endforeach-->
+				</tr>
+				<tr>
+					<th>11</th>
+					<!--@foreach($tableHash['11'] as $v)-->
+					<td>{$v}</td>
+					<!--@endforeach-->
+				</tr>
+				<tr>
+					<th>12</th>
+					<!--@foreach($tableHash['12'] as $v)-->
+					<td>{$v}</td>
+					<!--@endforeach-->
+				</tr>
+				<tr>
+					<th>13</th>
+					<!--@foreach($tableHash['13'] as $v)-->
+					<td>{$v}</td>
+					<!--@endforeach-->
+				</tr>
+				<tr>
+					<th>14</th>
+					<!--@foreach($tableHash['14'] as $v)-->
+					<td>{$v}</td>
+					<!--@endforeach-->
+				</tr>
+				<tr>
+					<th>15</th>
+					<!--@foreach($tableHash['15'] as $v)-->
+					<td>{$v}</td>
+					<!--@endforeach-->
+				</tr>
+				<tr>
+					<th>16</th>
+					<!--@foreach($tableHash['16'] as $v)-->
+					<td>{$v}</td>
+					<!--@endforeach-->
+				</tr>
+				<tr>
+					<th>over17</th>
+					<!--@foreach($tableHash['over17'] as $v)-->
+					<td>{$v}</td>
+					<!--@endforeach-->
+				</tr>
+				<tr>
+					<th>A+2</th>
+					<!--@foreach($tableHash['A+2'] as $v)-->
+					<td>{$v}</td>
+					<!--@endforeach-->
+				</tr>
+				<tr>
+					<th>A+3</th>
+					<!--@foreach($tableHash['A+3'] as $v)-->
+					<td>{$v}</td>
+					<!--@endforeach-->
+				</tr>
+				<tr>
+					<th>A+4</th>
+					<!--@foreach($tableHash['A+4'] as $v)-->
+					<td>{$v}</td>
+					<!--@endforeach-->
+				</tr>
+				<tr>
+					<th>A+5</th>
+					<!--@foreach($tableHash['A+5'] as $v)-->
+					<td>{$v}</td>
+					<!--@endforeach-->
+				</tr>
+				<tr>
+					<th>A+6</th>
+					<!--@foreach($tableHash['A+6'] as $v)-->
+					<td>{$v}</td>
+					<!--@endforeach-->
+				</tr>
+				<tr>
+					<th>A+7</th>
+					<!--@foreach($tableHash['A+7'] as $v)-->
+					<td>{$v}</td>
+					<!--@endforeach-->
+				</tr>
+				<tr>
+					<th>A+8</th>
+					<!--@foreach($tableHash['A+8'] as $v)-->
+					<td>{$v}</td>
+					<!--@endforeach-->
+				</tr>
+				<tr>
+					<th>A+A</th>
+					<!--@foreach($tableHash['A+A'] as $v)-->
+					<td>{$v}</td>
+					<!--@endforeach-->
+				</tr>
+				<tr>
+					<th>2+2</th>
+					<!--@foreach($tableHash['2+2'] as $v)-->
+					<td>{$v}</td>
+					<!--@endforeach-->
+				</tr>
+				<tr>
+					<th>3+3</th>
+					<!--@foreach($tableHash['3+3'] as $v)-->
+					<td>{$v}</td>
+					<!--@endforeach-->
+				</tr>
+				<tr>
+					<th>4+4</th>
+					<!--@foreach($tableHash['4+4'] as $v)-->
+					<td>{$v}</td>
+					<!--@endforeach-->
+				</tr>
+				<tr>
+					<th>5+5</th>
+					<!--@foreach($tableHash['5+5'] as $v)-->
+					<td>{$v}</td>
+					<!--@endforeach-->
+				</tr>
+				<tr>
+					<th>6+6</th>
+					<!--@foreach($tableHash['6+6'] as $v)-->
+					<td>{$v}</td>
+					<!--@endforeach-->
+				</tr>
+				<tr>
+					<th>7+7</th>
+					<!--@foreach($tableHash['7+7'] as $v)-->
+					<td>{$v}</td>
+					<!--@endforeach-->
+				</tr>
+				<tr>
+					<th>8+8</th>
+					<!--@foreach($tableHash['8+8'] as $v)-->
+					<td>{$v}</td>
+					<!--@endforeach-->
+				</tr>
+				<tr>
+					<th>9+9</th>
+					<!--@foreach($tableHash['9+9'] as $v)-->
+					<td>{$v}</td>
+					<!--@endforeach-->
+				</tr>
+				<tr>
+					<th>10+10</th>
+					<!--@foreach($tableHash['10+10'] as $v)-->
+					<td>{$v}</td>
+					<!--@endforeach-->
 				</tr>
 			</table>
 		
 		</div>
 		<div class="col-md-4">
+			<h1>{$me1} {$me2} : {$dealer1}</h1>
 		</div>
 
 	</div>
