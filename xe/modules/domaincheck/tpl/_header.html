@@ -1,0 +1,10 @@
+<h3 class="xeAdmin">{$lang->domaincheck} <span class="gray">{$lang->cmd_management}</span></h3>
+
+<div class="infoText">{nl2br($lang->basic_config_help)}</div>
+
+<div class="header4">
+    <ul class="localNavigation">
+        <li <!--@if($act=='dispDomaincheckAdminSetup')-->class="on"<!--@end-->><a href="{getUrl('act','dispDomaincheckAdminSetup','module_srl','')}">{$lang->cmd_setup}</a></li>
+        <li <!--@if($act=='dispDomaincheckAdminGrantInfo')-->class="on"<!--@end-->><a href="{getUrl('act','dispDomaincheckAdminGrantInfo')}">{$lang->cmd_manage_grant}</a></li>
+    </ul>
+</div>
