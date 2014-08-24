@@ -1,0 +1,10 @@
+<table name="domaincheck_domain">
+	<column name="domain_srl" type="number" size="11" notnull="notnull" primary_key="primary_key" />
+	<column name="domain_name" type="varchar" size="100" notnull="notnull" />
+    <column name="domain_updated_date" type="date" notnull="notnull" index="idx_domain_updated_date" />
+    <column name="domain_creation_date" type="date" notnull="notnull" index="idx_domain_creation_date" />
+    <column name="domain_expiration_date" type="date" notnull="notnull" index="idx_domain_expiration_date" />
+	
+    <column name="regdate" type="date" notnull="notnull" index="idx_regdate" />
+    <column name="last_update" type="date" notnull="notnull" index="idx_last_update" />
+</table>
